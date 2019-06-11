@@ -312,7 +312,7 @@ class InventoryLine(models.Model):
     product_name = fields.Char(
         'Product Name', related='product_id.name', store=True, readonly=True)
     product_code = fields.Char(
-        'Product Code', related='product_id.default_code', store=True)
+        'Product Code', related='product_id.default_code', store=True, compute_sudo=True)
     product_uom_id = fields.Many2one(
         'product.uom', 'Product Unit of Measure',
         required=True,
